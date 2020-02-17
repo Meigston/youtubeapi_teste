@@ -1,0 +1,63 @@
+<div class="section">
+	<div fxLayout="row" class="center">
+		<ng-container>
+			<mat-form-field class="width-300">
+				<input matInput placeholder="Pesquisar" [(ngModel)]="searchValue" (keyup)="onkeyup()">
+			</mat-form-field>
+
+			<button (click)="onClickSearch()" mat-flat-button color="primary">Pesquisar</button>
+		</ng-container>
+	</div>
+
+	<div class="center text-color" *ngIf="videos?.length == 0">
+		<label>Nenhum video encontrado...</label>
+	</div>
+
+	<div fxLayout="row" fxLayoutAlign="flex-start" class="noselect cardList" swipe>
+		<ng-container *ngFor="let item of videos">
+			<mat-card class="card"
+				fxFlex="0 1 calc(33.3% - 32px)"
+				fxFlex.lt-md="0 1 calc(50% - 32px)"
+				fxFlex.lt-sm="100%">
+
+				<mat-card-header>
+					<div mat-card-avatar class="card-header-image" [ngStyle]="{'background-image':'url('+item.snippet.thumbnails.default.url+')'}"></div>
+					<mat-card-title>{{item.snippet.title}}</mat-card-title>
+					<mat-card-subtitle>{{item.snippet.channelTitle}}</mat-card-subtitle>
+				</mat-card-header>
+				<img mat-card-image [src]="item.snippet.thumbnails.high.url" alt="">
+				<mat-card-content>
+					<p>
+						{{item.snippet.description}}
+					</p>
+
+					<p>
+						<i>
+							{{item.snippet.publishedAt | date: 'dd/MM/yyyy hh:mm'}}
+						</i>
+					</p>
+				</mat-card-content>
+				<mat-card-actions>
+					<button mat-flat-button color="secondary" (click)="onPlay(item.id.videoId)">VER VIDEO</button>
+				</mat-card-actions>
+			</mat-card>
+		</ng-container>
+
+	</div>
+
+	<div class="filter-modal" (click)="onClose()" [style.height]="heightFilter" [ngClass]="showModal ? 'show-modal' : 'hide-modal'"></div>
+	<div *ngIf="urlPlay" class="modal-local" [style.top]="scrollPage+ 'px'">
+		<mat-dialog-content>
+			<div>
+				<iframe [src]='urlPlay' frameborder="0" allowfullscreen></iframe>
+			</div>
+		</mat-dialog-content >
+
+		<hr>
+
+		<mat-dialog-actions class="position-button-close">
+			<button mat-flat-button color="secondary" (click)="onClose()" >FECHAR</button>
+		</mat-dialog-actions>
+	</div>
+
+</div>

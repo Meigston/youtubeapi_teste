@@ -1,0 +1,126 @@
+input {
+  color: white !important;
+}
+
+.text-color {
+  color: whitesmoke;
+}
+
+.card {
+  max-width: 400px;
+  margin: 20px;
+}
+
+.width-300 {
+  width: 300px;
+}
+
+.card-header-image {
+  background-size: cover;
+}
+
+.section {
+  padding-top: 80px;
+  padding-left: 80px;
+}
+
+.center {
+  text-align: center !important;
+}
+
+.cardList {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+}
+
+.cardList > * {
+  box-sizing: border-box;
+}
+.cardList > *:not(:last-child) {
+  margin-right: 32px;
+}
+
+.cardListItem {
+  flex: 0 1 calc(33.3% - 32px);
+}
+
+@media screen and (max-width: 959px) {
+  .cardList > *:not(:last-child) {
+    margin-right: 32px;
+  }
+
+  .cardListItem {
+    flex: 0 1 calc(50% - 32px);
+  }
+}
+
+@media screen and (max-width: 599px) {
+  .cardList {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+  }
+  .cardList > *:not(:last-child) {
+    margin-right: unset;
+    margin-bottom: 32px;
+  }
+}
+
+.noselect {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.modal-local {
+  position: fixed;
+  width: 90%;
+  height: 90%;
+  min-width: 350px;
+  margin-right: auto;
+  margin-left: auto;
+  top: 6% !important;
+  z-index: 10000;
+  background-color: white;
+  border-radius: 5px;
+  right: auto;
+}
+
+.modal-local iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.filter-modal {
+  background-color: rgba(0, 0, 0, 9.5);
+  content: "";
+  display: block;
+  height: 200%;
+  left: 0;
+  top: 0;
+  position: fixed;
+  width: 100%;
+  z-index: 9999;
+}
+
+.show-modal {
+  display: initial !important;
+}
+
+.hide-modal {
+  display: none !important;
+}
+
+.position-button-close {
+  position: absolute;
+  margin-top: -55px;
+  left: 93.5%;
+}

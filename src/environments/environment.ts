@@ -5,7 +5,7 @@
 export const environment = {
   production: false,
 
-  youtubeApiKey: 'AIzaSyDQLshkrXwY4uLPerwE0u_ZEmD2xu47g7k'
+  youtubeApiKey: 'YOUR_YOUTUBE_TOKEN'
 };
 
 /*
